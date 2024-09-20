@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Só Promo!</title>
+    <link rel="icon" href="iconpage.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #iframeContainer {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <script>
+        function prevenirCombinacoesDeTeclas(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'I' || // Ctrl+Shift+I
+                e.ctrlKey && e.key === 'U' || // Ctrl+U
+                e.key === 'F12') { // F12
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }
+
+        function prevenirMenuContexto(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+
+        function detectarDevTools() {
+            const limiar = 160;
+            const devToolsAberto = window.outerWidth - window.innerWidth > limiar ||
+                                   window.outerHeight - window.innerHeight > limiar;
+            if (devToolsAberto) {
+                alert('Ferramentas de desenvolvedor detectadas. O acesso está restrito.');
+                window.location.href = 'about:blank';
+            }
+        }
+
+        function verificarAcesso() {
+            const dataAtual = new Date();
+            const diaDaSemana = dataAtual.getDay();
+            const horaAtual = dataAtual.getHours();
+            const minutoAtual = dataAtual.getMinutes();
+
+            if (diaDaSemana === 6 || (diaDaSemana === 5 && (horaAtual > 17 || (horaAtual === 17 && minutoAtual > 0)))) {
+                alert('Acesso restrito: O site está disponível apenas de segunda a quinta ou sexta até as 17:00.');
+                window.location.href = 'about:blank';
+            }
+        }
+
+        function isDesktop() {
+            return !/Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        document.addEventListener('keydown', prevenirCombinacoesDeTeclas);
+        document.addEventListener('contextmenu', prevenirMenuContexto);
+
+        window.addEventListener('resize', () => {
+            if (isDesktop()) detectarDevTools();
+        });
+
+        window.addEventListener('load', () => {
+            verificarAcesso();
+            if (isDesktop()) {
+                detectarDevTools();
+            }
+            document.getElementById('iframe').src = 'Pages/inicio.html';
+        });
+    </script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; frame-src 'self';">
+</head>
+<body>
+    <div id="iframeContainer">
+        <iframe id="iframe" src=""></iframe>
+    </div>
+</body>
+</html>
