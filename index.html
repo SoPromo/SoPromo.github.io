@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="lomadee-verification" content="23379545" />
+    <title>Só Promo</title>
+    <link rel="icon" href="iconpage.ico" type="image/x-icon">
+    <audio id="tecladoSound" src="teclado.mp3" preload="auto"></audio>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espaçamento entre os produtos */
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product {
+        box-sizing: border-box;
+        border: 1px solid #ff66b3;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        text-align: center;
+        transition: transform 0.2s;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 250px; /* Altura mínima ajustada */
+        width: calc(30% - 20px); /* 3 produtos por linha */
+    }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .price {
+            color: #ff66b3;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff66b3;
+            color: white;
+            width: 100%;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            text-align: center;
+        }
+        .overlay p {
+            margin: 20px 0;
+        }
+        .accept-button {
+            background-color: #ff66b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .accept-button:hover {
+            background-color: #ff4d99;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 10px); /* 2 produtos por linha em telas médias */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: calc(100% - 20px); /* 1 produto por linha em telas pequenas */
+            }
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+
+        #searchInput {
+            padding: 10px;
+            border: 2px solid #d63384;
+            border-radius: 5px;
+            width: 300px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        #searchInput::placeholder {
+            color: #aaa;
+        }
+
+        #searchInput:focus {
+            border-color: #c61c6f;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(214, 51, 132, 0.5);
+            outline: none;
+        }
+
+        .update-date {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+		
+		.discount-banner {
+    position: absolute;
+    top: 10px; /* Ajuste conforme necessário */
+    left: 10px; /* Ajuste conforme necessário */
+    background-color: #ff66b3; /* Rosa */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px; /* Arredondar os cantos */
+    font-weight: bold;
+    font-size: 1em;
+    z-index: 10; /* Garante que fique acima da imagem */
+}
+.product {
+    position: relative; /* Para permitir que o banner fique posicionado corretamente */
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay">
+    <p>Antes de prosseguir, por favor, aceite nossos termos de serviço! <a href="termos.html" style="color: #ffccff;">[ver termos]</a></p>
+    <button class="accept-button" onclick="acceptTerms()">Eu Aceito</button>
+</div>
+
+<header>
+    <h1>Só Promo!</h1>
+    <input type="text" id="searchInput" placeholder="Pesquisar produtos...">
+    <p class="update-date">Data de atualização: 22/09/24 - Às 12:34</p>
+</header>
+
+<div class="container">
+    <div class="product" onclick="window.location.href='https://redir.lomadee.com/v2/26602f43f2b'" data-tags="headset, fone de ouvido" style="cursor: pointer;">
+        <div class="discount-banner">5,01% OFF</div>
+        <img src="icons/produtos/headsets/headset001.png" alt="Produto 1">
+        <h2 class="product-title">Headset Gamer Galax Sonar 1 RGB</h2>
+        <p>Desfrute de conforto e durabilidade com os fones GALAX Sonar, que têm faixa ajustável e abafadores ergonômicos, garantindo um encaixe perfeito para longas jogatinas.</p>
+        <p class="price">R$ 66,40</p>
+    </div>
+    <div class="product" onclick="window.location.href='https://redir.lomadee.com/v2/266650fed3e'" data-tags="teclado, gamer" style="cursor: pointer;">
+        <div class="discount-banner">7% OFF</div>
+        <img src="icons/produtos/teclados/teclado001.png" alt="Produto 2">
+        <h2 class="product-title">Teclado Gamer Viper Pro</h2>
+        <p>O Teclado Gamer Viper Pro proporciona momentos incríveis nas jogatinas, além de desempenho superior! Seu design de alta qualidade e teclas fazem a diferença para os jogadores.</p>
+        <p class="price">R$ 39,90</p>
+    </div>
+	<div class="product" onclick="window.location.href='https://redir.lomadee.com/v2/2669855f784'" data-tags="celular, barato, samsung, a03, smartphone" style="cursor: pointer;">
+        <div class="discount-banner">38% OFF</div>
+        <img src="icons/produtos/celulares/celular001.png" alt="Produto 2">
+        <h2 class="product-title">Smartphone Samsung Galaxy A03 Core 6.5"</h2>
+        <p>Um show de conteúdo e conectividade a um ótimo custo-benefício, A tela de 6,5" com display infinito e resolução HD+.</p>
+        <p class="price">R$ 679,00</p>
+    </div>
+	<div class="product" onclick="window.location.href='https://redir.lomadee.com/v2/266bc626a1a'" data-tags="celular, barato, morotola, g14, smartphone, 4g" style="cursor: pointer;">
+        <div class="discount-banner">33% OFF</div>
+        <img src="icons/produtos/celulares/celular002.png" alt="Produto 2">
+        <h2 class="product-title">Smartphone Motorola Moto G14 4G 6.5</h2>
+        <p>O Smartphone Moto G14 da Motorola é uma ótima opção para você. Com uma excelente estrutura e tecnologia boa!</p>
+        <p class="price">R$ 829,00</p>
+    </div>
+</div>
+
+
+
+
+
+<footer>
+    <p>&copy; 2024 Só Promo. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Filtro de produtos com base na busca por título e tags
+document.getElementById('searchInput').addEventListener('input', function () {
+    let filter = this.value.toLowerCase().replace(/\s/g, ''); // Remove espaços e converte para minúsculas
+    let products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+        let title = product.querySelector('.product-title').textContent.toLowerCase().replace(/\s/g, '');
+        let tags = product.getAttribute('data-tags').toLowerCase().replace(/\s/g, '');
+
+        // Verifica se o termo pesquisado está presente no título ou nas tags
+        if (title.includes(filter) || tags.includes(filter)) {
+            product.style.display = 'flex'; // Mostra o produto
+        } else {
+            product.style.display = 'none'; // Esconde o produto
+        }
+    });
+
+    // Tocar o som de teclado
+    const tecladoSound = document.getElementById('tecladoSound');
+    tecladoSound.currentTime = 0; // Reinicia o som para evitar sobreposição
+    tecladoSound.play();
+});
+
+function acceptTerms() {
+    document.getElementById('overlay').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
